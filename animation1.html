@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Animation | larmong</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+
+        .content h2{ font-size:19px; color: #fff; line-height: 130px;}
+
+        .border_bg{
+            background-image: url("https://3.bp.blogspot.com/-piZWCW2uUbg/W2fPXxkWZgI/AAAAAAAAOu0/eydmMjTIqcwLMHEEr2H7imqoRTxMw4o9QCLcBGAs/s1600/among_trees_night_dribbble.png");
+            width: 800px; height: 400px; background-repeat: no-repeat;
+            background-size: cover; margin: 5% auto; position: relative;
+        }
+
+        .borbox{
+            position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 25%; height: 50%;
+            background: #111845a6;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgb(23, 32, 90);
+            border: 2px solid #2a3cad;
+            padding: 20px;
+        }
+
+        .borbox .content{
+            position:absolute;
+            top:15px; left:15px; right:15px; bottom:15px;
+            border:1px solid #f0a591; padding: 20px; text-align:center;
+            box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+
+        }
+
+        .borbox span{
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: block; box-sizing: border-box;
+        }
+
+        .borbox span:nth-child(1) {transform:rotate(0deg);}
+
+        .borbox span:nth-child(2) {transform:rotate(90deg);}
+
+        .borbox span:nth-child(3) {transform:rotate(180deg);}
+
+        .borbox span:nth-child(4) {transform:rotate(270deg);}
+
+        .borbox span:before
+        {
+            content: '';
+            position: absolute;
+            width:100%;
+            height: 2px;
+            background: #50dfdb;
+            animation: border_ani 4s linear infinite;
+        }
+
+        @keyframes border_ani {
+            0% {transform:scaleX(0); transform-origin: left;}
+            50% {transform:scaleX(1); transform-origin: left;}
+            50.1% {transform:scaleX(1); transform-origin: right;}
+            100% {transform:scaleX(0);transform-origin: right;}
+        } 
+        .animation_des {
+            position: absolute;
+            bottom: 100px; left: 50%; transform: translateX(-50%);
+            text-align: center; font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="border_bg">
+        <div class="borbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="content">
+                    <h2>AREUM</h2>
+                </div>
+        </div>
+    </div>
+
+    <div class="animation_des">
+        CSS animation을 이용한 border 애니메이션입니다.<br>
+        4개의 span을 회전시키고 애니메이션 50%때까지는 scaleX 0~1 ,기준점 left 를 줘서<br>
+        선이 늘어나는 효과를 50.1%부터는 scaleX 1~0 기준점 right로 줘서 선이 줄어드는 효과를 줬습니다.
+    </div>
+</body>
+</html>

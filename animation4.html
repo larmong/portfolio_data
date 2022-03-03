@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Animation | larmong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            background-color: #E6E5E1;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .code_box {
+            width: 650px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #ddd;
+        }
+        .code_box .card {
+            position: relative; width: 70%; height: 70%;
+            background-color: #fff; overflow: hidden;
+        }
+
+        .code_box .card p {
+            z-index: 3;  position: absolute;
+            bottom: 0; right: 24%; font-size: 60px;
+            font-weight: 700; color: #fff;
+        }
+        .code_box .card .fa-arrow-right {
+            z-index: 3;  position: absolute;
+            right: 13%; bottom: 8%; font-size: 40px;
+        }
+        .code_box .card span {
+            z-index: 99; position: absolute;
+            top: 10%; right: 13%; color: #333;
+            opacity: 0.7; font-size: 12px;
+            writing-mode: vertical-lr;
+            transition: all 0.2s ease;
+        }
+        .code_box .card .pic {
+            width: 80%; height: 100%;
+            background-image: url("https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=rb-0.3.5&s=3a2fc3039516555bbb2e9cd2967bd321&auto=format&fit=crop&w=1537&q=80");
+            background-size: 100% 100%;
+            filter: grayscale(100%);
+        }
+        .code_box .card .social {
+            position: absolute; left: 8%; width: 40%; height: 30%;
+            top: 0; display: flex; justify-content: space-around; align-items: center;
+        }
+        .code_box i {
+            opacity: 0; font-size: 18px; color: #fff;
+            transform: scale(0.1); transition: all 0.2s ease;
+        }
+
+        .code_box .card .social i:nth-of-type(1) {transition-delay: 0.4s;}
+        .code_box .card .social i:nth-of-type(2) {transition-delay: 0.3s;}
+        .code_box .card .social i:nth-of-type(3) {transition-delay: 0.2s;}
+        .code_box .card .social i:nth-of-type(4) {transition-delay: 0.1s;}
+        .code_box .card:hover i {opacity: 1; transform: scale(1);}
+        .code_box .card button {
+            position: absolute; right: 14px; bottom: 14px; width: 30px; height: 30px;
+            background-color: #2b26c3; border: none;
+            border-radius: 30px;  transition: all 0.3s ease;
+            mix-blend-mode: hard-light;
+        }
+
+        .code_box .card:hover button{transform: scale(16.5);}
+        .code_box .card:hover p {
+            color: #fff;
+        }
+        .code_box .card:hover .pic {
+            filter: grayscale(0);
+        }
+
+
+        
+        .animation_des {
+            position: absolute;
+            bottom: 100px; left: 50%; transform: translateX(-50%);
+            text-align: center; font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="code_box">
+        <div class="card">
+        <p>Vauxhall</p>
+        <i class="fas fa-arrow-right"></i>
+        <span>a lonely trip.</span>
+        <div class="pic"></div>
+        <div class="social">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-github"></i>
+        </div>
+        <button></button>
+    </div>
+
+    <div class="animation_des">
+        CSS hover를 이용한 애니메이션입니다.<br>
+        호버했을때 이미지의 색을 원래대로 보이게 하고 파란색 원은 transform: scale을 사용해 키웠습니다.<br>
+        또한, 숨어있던 화살표와 SNS 아이콘들은 delay를 다르게 줘서 차례대로 보이는 효과를 줬습니다.
+    </div>
+</body>
+</html>

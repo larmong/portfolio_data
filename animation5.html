@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation | larmong</title>
+    <style>
+        html,body{height: 100%;}
+
+        body {
+            display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #1845501a 100%);
+        }
+
+        .code_box{
+            width: 650px; height: 300px; background: #fff; 
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .text_ani{
+            font-size: 8vw; font-weight: 900;
+            text-align: center;  background-image: url("https://www.dropbox.com/s/ac9efh6oqu3docb/stars.png?raw=1");
+            background-size: 400px auto;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: snow 3s infinite linear;
+        }
+
+        @keyframes snow {
+            0% { background-position: 0 -400px; }
+            100% { background-position: 0 0; }
+        }
+        
+        .animation_des {
+            position: absolute;
+            bottom: 100px; left: 50%; transform: translateX(-50%);
+            text-align: center; font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="code_box">
+        <p class="text_ani">AREUM</p>
+    </div>
+
+    <div class="animation_des">
+        CSS를 이용한 글씨 안에 눈오는 애니메이션입니다.<br>
+        텍스트의 안쪽을 fill-color: transparent로 투명하게 만든 후<br>
+        background-clip: text로 설정해 배경이미지를 텍스트로 넣은 후<br>
+        CSS 애니메이션으로 background-position을 바꿨습니다.
+    </div>
+</body>
+</html>
